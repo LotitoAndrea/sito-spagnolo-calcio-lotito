@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historia del Club - CD Tenerife</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <style>
+        .historia-hero {
+            background: linear-gradient(rgba(30, 60, 114, 0.8), rgba(42, 82, 152, 0.8)), 
+                        url('img/historia-bg.jpg') center/cover;
+            padding: 80px 0;
+            color: white;
+            text-align: center;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: #ff6b35;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+        
+        .timeline-item {
+            padding: 20px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: #ff6b35;
+            border: 4px solid #fff;
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-item:nth-child(even)::after {
+            left: -10px;
+        }
+        
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .timeline-date {
+            color: #ff6b35;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .achievement-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .achievement-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .achievement-icon {
+            font-size: 3rem;
+            color: #ff6b35;
+            margin-bottom: 1rem;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .timeline::after {
+                left: 20px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 60px;
+                padding-right: 20px;
+            }
+            
+            .timeline-item::after {
+                left: 10px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="img/logo-tenerife.png" alt="CD Tenerife Logo" class="logo">
+                <h1>CD Tenerife</h1>
+            </div>
+            <nav class="navbar">
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Inicio</a></li>
+                    <li><a href="historia.html" class="nav-link active">Historia</a></li>
+                    <li><a href="jugadores.html" class="nav-link">Jugadores</a></li>
+                    <li><a href="calendario.html" class="nav-link">Calendario</a></li>
+                    <li><a href="noticias.html" class="nav-link">Noticias</a></li>
+                    <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Historia -->
+    <section class="historia-hero">
+        <div class="container">
+            <h1>Historia del Club Deportivo Tenerife</h1>
+            <p class="lead">Más de un siglo de pasión, tradición y orgullo canario</p>
+        </div>
+    </section>
+
+    <!-- Contenido Principal -->
+    <section class="presentation">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <h2>Una Historia Centenaria</h2>
+                    <p class="lead">El Club Deportivo Tenerife es una institución emblemática del fútbol canario que ha marcado la historia del deporte en las Islas Canarias durante más de un siglo.</p>
+                    
+                    <p>Fundado el 9 de agosto de 1922, el CD Tenerife nació de la fusión de varios clubes locales de Santa Cruz de Tenerife, con el objetivo de crear un equipo que representara dignamente a la isla en competiciones regionales y nacionales.</p>
+                    
+                    <p>Desde sus inicios, el club se caracterizó por su espíritu luchador y su compromiso con el desarrollo del fútbol canario. Los colores azul y blanco fueron adoptados como símbolo de la pureza de sus intenciones deportivas y su conexión con el cielo y las olas del Atlántico que rodean las islas.</p>
+                    
+                    <p>A lo largo de las décadas, el CD Tenerife ha vivido momentos de gloria en las categorías más altas del fútbol español, incluyendo participaciones memorables en Primera División durante las décadas de los 90 y 2000, donde compitió contra los mejores equipos de España y demostró que el fútbol canario tenía un lugar en la élite nacional.</p>
+                </div>
+                <div class="col-md-4">
+                    <div class="info-card">
+                        <h3>Datos Históricos</h3>
+                        <ul class="club-info">
+                            <li><strong>Fundación:</strong> 9 de agosto de 1922</li>
+                            <li><strong>Fundadores:</strong> Varios clubes locales</li>
+                            <li><strong>Primer Estadio:</strong> Campo de Deportes</li>
+                            <li><strong>Estadio Actual:</strong> Heliodoro Rodríguez López (1925)</li>
+                            <li><strong>Mayor Logro:</strong> Primera División (1989-2001)</li>
+                            <li><strong>Temporadas en Primera:</strong> 13 temporadas</li>
+                            <li><strong>Máximo Goleador:</strong> Ayoze Pérez</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Histórico -->
+    <section class="latest-news">
+        <div class="container">
+            <h2>Cronología Histórica</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">1922</div>
+                        <h3>Fundación del Club</h3>
+                        <p>El 9 de agosto se funda el Club Deportivo Tenerife mediante la fusión de varios equipos locales de Santa Cruz de Tenerife. Los colores azul y blanco son adoptados oficialmente.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">1925</div>
+                        <h3>Inauguración del Estadio</h3>
+                        <p>Se inaugura el Estadio Heliodoro Rodríguez López, que desde entonces ha sido la casa del CD Tenerife. Inicialmente con capacidad para 8.000 espectadores.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">1950-1960</div>
+                        <h3>Consolidación Regional</h3>
+                        <p>El club se establece como una referencia en el fútbol canario, ganando múltiples torneos regionales y estableciendo una base sólida de aficionados.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">1989</div>
+                        <h3>Ascenso a Primera División</h3>
+                        <p>Momento histórico: el CD Tenerife logra el ascenso a Primera División por primera vez en su historia, marcando el inicio de una época dorada.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">1993</div>
+                        <h3>La Hazaña Europea</h3>
+                        <p>El equipo logra clasificarse para la Copa UEFA, convirtiéndose en el primer y único equipo canario en participar en competiciones europeas oficiales.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">1999</div>
+                        <h3>Años de Gloria</h3>
+                        <p>Durante esta década, el CD Tenerife se mantiene en Primera División y se convierte en un equipo respetado, con figuras como Redondo y otros grandes jugadores.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2025</div>
+                        <h3>Era Actual</h3>
+                        <p>El club compite en Primera Federación, manteniendo viva la esperanza del ascenso y continuando su compromiso con el desarrollo del fútbol canario.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Logros y Reconocimientos -->
+    <section class="presentation">
+        <div class="container">
+            <h2 class="text-center">Logros y Reconocimientos</h2>
+            <p class="text-center lead">Los momentos más destacados en la historia del club</p>
+            
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <div class="achievement-icon">🏆</div>
+                    <h3>13 Temporadas en Primera</h3>
+                    <p>Entre 1989 y 2001, el CD Tenerife compitió en la máxima categoría del fútbol español durante 13 temporadas.</p>
+                </div>
+                
+                <div class="achievement-card">
+                    <div class="achievement-icon">🌍</div>
+                    <h3>Participación Europea</h3>
+                    <p>Único equipo canario en participar en competiciones europeas oficiales (Copa UEFA 1993-94).</p>
+                </div>
+                
+                <div class="achievement-card">
+                    <div class="achievement-icon">🏟️</div>
+                    <h3>Estadio Histórico</h3>
+                    <p>El Estadio Heliodoro Rodríguez López, inaugurado en 1925, es uno de los más antiguos de España.</p>
+                </div>
+                
+                <div class="achievement-card">
+                    <div class="achievement-icon">⭐</div>
+                    <h3>Figuras Destacadas</h3>
+                    <p>Ha sido hogar de grandes jugadores como Fernando Redondo, Ayoze Pérez, y otros talentos reconocidos.</p>
+                </div>
+                
+                <div class="achievement-card">
+                    <div class="achievement-icon">🏝️</div>
+                    <h3>Orgullo Canario</h3>
+                    <p>Más de 100 años representando con honor el fútbol de las Islas Canarias en toda España.</p>
+                </div>
+                
+                <div class="achievement-card">
+                    <div class="achievement-icon">👥</div>
+                    <h3>Cantera Productiva</h3>
+                    <p>Formador de talentos locales que han triunfado en equipos de toda España y el extranjero.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Club Deportivo Tenerife</h3>
+                    <p>Estadio Heliodoro Rodríguez López<br>
+                    Avenida San Sebastián, s/n<br>
+                    38006 Santa Cruz de Tenerife</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="historia.html">Historia del Club</a></li>
+                        <li><a href="jugadores.html">Plantilla</a></li>
+                        <li><a href="calendario.html">Calendario</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Síguenos</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link">Facebook</a>
+                        <a href="#" class="social-link">Twitter</a>
+                        <a href="#" class="social-link">Instagram</a>
+                        <a href="#" class="social-link">YouTube</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Club Deportivo Tenerife. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

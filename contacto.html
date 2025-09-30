@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - CD Tenerife</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <style>
+        .contact-hero {
+            background: linear-gradient(rgba(30, 60, 114, 0.8), rgba(42, 82, 152, 0.8)), 
+                        url('img/contacto-bg.jpg') center/cover;
+            padding: 80px 0;
+            color: white;
+            text-align: center;
+        }
+
+        
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin: 3rem 0;
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+        
+        .contact-info {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #1e3c72;
+        }
+        
+        .form-input,
+        .form-textarea,
+        .form-select {
+            width: 100%;
+            padding: 12px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            font-family: inherit;
+        }
+        
+        .form-input:focus,
+        .form-textarea:focus,
+        .form-select:focus {
+            outline: none;
+            border-color: #ff6b35;
+        }
+        
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .form-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        
+        .form-checkbox input[type="checkbox"] {
+            width: auto;
+            margin: 0;
+        }
+        
+        .submit-btn {
+            background: #ff6b35;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        
+        .submit-btn:hover {
+            background: #e55a2b;
+            transform: translateY(-2px);
+        }
+        
+        .contact-item {
+            
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 2rem 0;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgb(192, 192, 192);
+        }
+        
+        .contact-item:last-child {
+            border-bottom: none;
+
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #ff6b35;
+        }
+        
+        .contact-details h4 {
+            margin: 0 0 0.5rem 0;
+            color: #ff6b35;
+        }
+        
+        .contact-details p {
+            margin: 0;
+            opacity: 0.9;
+        }
+        
+        .map-container {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            margin: 3rem 0;
+        }
+        
+        .map-header {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .map-placeholder {
+            height: 300px;
+            background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 1.2rem;
+            position: relative;
+        }
+        
+        .stadium-info {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            margin: 3rem 0;
+        }
+        
+        .stadium-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .stadium-feature {
+            text-align: center;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 15px;
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: #ff6b35;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-title {
+            font-weight: bold;
+            color: #1e3c72;
+            margin-bottom: 0.5rem;
+        }
+        
+        .feature-desc {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .working-hours {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+        }
+        
+        .hours-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .hours-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .hours-item:last-child {
+            border-bottom: none;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .contact-form,
+            .contact-info {
+                padding: 2rem;
+            }
+            
+            .stadium-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hours-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="img/logo-tenerife.png" alt="CD Tenerife Logo" class="logo">
+                <h1>CD Tenerife</h1>
+            </div>
+            <nav class="navbar">
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Inicio</a></li>
+                    <li><a href="historia.html" class="nav-link">Historia</a></li>
+                    <li><a href="jugadores.html" class="nav-link">Jugadores</a></li>
+                    <li><a href="calendario.html" class="nav-link">Calendario</a></li>
+                    <li><a href="noticias.html" class="nav-link">Noticias</a></li>
+                    <li><a href="contacto.html" class="nav-link active">Contacto</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Contacto -->
+    <section class="contact-hero">
+        <div class="container">
+            <h1>Contacto</h1>
+            <p class="lead">Ponte en contacto con el Club Deportivo Tenerife</p>
+            <p>Estamos aquí para atender todas tus consultas y comentarios</p>
+        </div>
+    </section>
+
+    <!-- Formulario de Contacto -->
+    <section class="presentation">
+        <div class="container">
+            <div class="contact-container">
+                <!-- Formulario -->
+                <div class="contact-form">
+                    <h2>Envíanos un mensaje</h2>
+                    <p class="mb-3">Completa el formulario y nos pondremos en contacto contigo lo antes posible.</p>
+                    
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Nombre completo *</label>
+                            <input type="text" id="name" name="name" class="form-input" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="form-label">Correo electrónico *</label>
+                            <input type="email" id="email" name="email" class="form-input" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Teléfono</label>
+                            <input type="tel" id="phone" name="phone" class="form-input">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject" class="form-label">Asunto *</label>
+                            <select id="subject" name="subject" class="form-select" required>
+                                <option value="">Selecciona un asunto</option>
+                                <option value="informacion-general">Información general</option>
+                                <option value="entradas">Entradas y abonos</option>
+                                <option value="tienda">Tienda oficial</option>
+                                <option value="patrocinio">Patrocinio y colaboraciones</option>
+                                <option value="prensa">Prensa y medios</option>
+                                <option value="cantera">Escuela de fútbol y cantera</option>
+                                <option value="sugerencias">Sugerencias y quejas</option>
+                                <option value="otros">Otros</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message" class="form-label">Mensaje *</label>
+                            <textarea id="message" name="message" class="form-textarea" placeholder="Escribe aquí tu mensaje..." required></textarea>
+                        </div>
+                        
+                        <div class="form-checkbox">
+                            <input type="checkbox" id="newsletter" name="newsletter">
+                            <label for="newsletter">Deseo recibir noticias y actualizaciones del CD Tenerife</label>
+                        </div>
+                        
+                        <div class="form-checkbox">
+                            <input type="checkbox" id="privacy" name="privacy" required>
+                            <label for="privacy">Acepto la política de privacidad *</label>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">Enviar mensaje</button>
+                    </form>
+                </div>
+                
+                <!-- Información de contacto -->
+                <div class="contact-info">
+                    <h2>Información de contacto</h2>
+                    <p>Ponte en contacto con nosotros a través de cualquiera de estos medios</p>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-details">
+                            <h4>Dirección</h4>
+                            <p>Estadio Heliodoro Rodríguez López<br>
+                            Avenida San Sebastián, s/n<br>
+                            38006 Santa Cruz de Tenerife<br>
+                            Islas Canarias, España</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-details">
+                            <h4>Teléfonos</h4>
+                            <p>Información general: +34 922 63 21 00<br>
+                            Taquillas: +34 922 63 21 01<br>
+                            Tienda oficial: +34 922 63 21 02<br>
+                            Prensa: +34 922 63 21 03</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div class="contact-details">
+                            <h4>Correos electrónicos</h4>
+                            <p>Información: info@cdtenerife.es<br>
+                            Prensa: prensa@cdtenerife.es<br>
+                            Comercial: comercial@cdtenerife.es<br>
+                            Cantera: cantera@cdtenerife.es</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">🌐</div>
+                        <div class="contact-details">
+                            <h4>Redes sociales</h4>
+                            <p>@CDTenerife<br>
+                            Facebook, Twitter, Instagram<br>
+                            YouTube: CD Tenerife Oficial</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Horarios de atención -->
+    <section class="latest-news">
+        <div class="container">
+            <div class="working-hours">
+                <h3>Horarios de atención</h3>
+                <div class="hours-grid">
+                    <div>
+                        <h4>Oficinas administrativas</h4>
+                        <div class="hours-item">
+                            <span>Lunes a Viernes:</span>
+                            <span>9:00 - 14:00 / 16:00 - 19:00</span>
+                        </div>
+                        <div class="hours-item">
+                            <span>Sábados:</span>
+                            <span>9:00 - 13:00</span>
+                        </div>
+                        <div class="hours-item">
+                            <span>Domingos:</span>
+                            <span>Cerrado</span>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4>Tienda oficial</h4>
+                        <div class="hours-item">
+                            <span>Lunes a Viernes:</span>
+                            <span>10:00 - 14:00 / 17:00 - 20:00</span>
+                        </div>
+                        <div class="hours-item">
+                            <span>Sábados:</span>
+                            <span>10:00 - 14:00</span>
+                        </div>
+                        <div class="hours-item">
+                            <span>Domingos partidos:</span>
+                            <span>2 horas antes del partido</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Información del estadio -->
+    <section class="latest-news">
+        <div class="container">
+            <div class="stadium-info">
+                <h2 class="text-center">Estadio Heliodoro Rodríguez López</h2>
+                <p class="text-center lead">Nuestro hogar desde 1925</p>
+                
+                <div class="stadium-grid">
+                    <div class="stadium-feature">
+                        <div class="feature-icon">🏟️</div>
+                        <div class="feature-title">Capacidad</div>
+                        <div class="feature-desc">22.824 espectadores</div>
+                    </div>
+                    
+                    <div class="stadium-feature">
+                        <div class="feature-icon">📅</div>
+                        <div class="feature-title">Inauguración</div>
+                        <div class="feature-desc">25 de julio de 1925</div>
+                    </div>
+                    
+                    <div class="stadium-feature">
+                        <div class="feature-icon">📏</div>
+                        <div class="feature-title">Dimensiones</div>
+                        <div class="feature-desc">105 x 68 metros</div>
+                    </div>
+                    
+                    <div class="stadium-feature">
+                        <div class="feature-icon">🚗</div>
+                        <div class="feature-title">Aparcamiento</div>
+                        <div class="feature-desc">500 plazas disponibles</div>
+                    </div>
+                    
+                    <div class="stadium-feature">
+                        <div class="feature-icon">♿</div>
+                        <div class="feature-title">Accesibilidad</div>
+                        <div class="feature-desc">Totalmente adaptado</div>
+                    </div>
+                    
+                    <div class="stadium-feature">
+                        <div class="feature-icon">🎫</div>
+                        <div class="feature-title">Taquillas</div>
+                        <div class="feature-desc">Abiertas días de partido</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Club Deportivo Tenerife</h3>
+                    <p>Estadio Heliodoro Rodríguez López<br>
+                    Avenida San Sebastián, s/n<br>
+                    38006 Santa Cruz de Tenerife</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="historia.html">Historia del Club</a></li>
+                        <li><a href="jugadores.html">Plantilla</a></li>
+                        <li><a href="calendario.html">Calendario</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Síguenos</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link">Facebook</a>
+                        <a href="#" class="social-link">Twitter</a>
+                        <a href="#" class="social-link">Instagram</a>
+                        <a href="#" class="social-link">YouTube</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Club Deportivo Tenerife. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Funcionalidad del formulario de contacto
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contact-form');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Validación básica
+                    const name = document.getElementById('name').value;
+                    const email = document.getElementById('email').value;
+                    const subject = document.getElementById('subject').value;
+                    const message = document.getElementById('message').value;
+                    const privacy = document.getElementById('privacy').checked;
+                    
+                    if (!name || !email || !subject || !message || !privacy) {
+                        alert('Por favor, completa todos los campos obligatorios.');
+                        return;
+                    }
+                    
+                    // Simulación de envío exitoso
+                    alert('¡Mensaje enviado correctamente! Nos pondremos en contacto contigo pronto.');
+                    contactForm.reset();
+                });
+            }
+        });
+    </script>
+</body>
+</html>

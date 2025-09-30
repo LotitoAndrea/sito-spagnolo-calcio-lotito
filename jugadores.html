@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plantilla - CD Tenerife</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <style>
+        .players-hero {
+            background: linear-gradient(rgba(30, 60, 114, 0.8), rgba(42, 82, 152, 0.8)), 
+                        url('img/plantilla-bg.jpg') center/cover;
+            padding: 80px 0;
+            color: white;
+            text-align: center;
+        }
+        
+        .formation-container {
+            background: linear-gradient(45deg, #1e8449, #28b463);
+            padding: 3rem 0;
+            margin: 2rem 0;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .formation-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="10" fill="none" stroke="white" stroke-width="0.5" opacity="0.3"/><line x1="0" y1="50" x2="100" y2="50" stroke="white" stroke-width="0.3" opacity="0.3"/><line x1="50" y1="0" x2="50" y2="100" stroke="white" stroke-width="0.3" opacity="0.3"/></svg>') center/cover;
+        }
+        
+        .formation-title {
+            text-align: center;
+            color: white;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .formation-field {
+            display: grid;
+            grid-template-rows: repeat(4, 1fr);
+            gap: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .formation-line {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .formation-player {
+            background: rgba(255,255,255,0.9);
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-weight: bold;
+            color: #1e3c72;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 3px solid #ff6b35;
+        }
+        
+        .formation-player:hover {
+            transform: scale(1.1);
+            background: #ff6b35;
+            color: white;
+        }
+        
+        .players-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .player-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .player-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .player-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .player-number {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: #ff6b35;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .player-info {
+            padding: 1.5rem;
+        }
+        
+        .player-name {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #1e3c72;
+            margin-bottom: 0.5rem;
+        }
+        
+        .player-position {
+            color: #ff6b35;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+        
+        .player-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.25rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .position-filter {
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .filter-btn {
+            background: transparent;
+            border: 2px solid #1e3c72;
+            color: #1e3c72;
+            padding: 0.5rem 1.5rem;
+            margin: 0 0.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+        
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: #1e3c72;
+            color: white;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .formation-field {
+                grid-template-rows: repeat(4, auto);
+                gap: 0.5rem;
+            }
+            
+            .formation-player {
+                width: 60px;
+                height: 60px;
+                font-size: 0.7rem;
+            }
+            
+            .players-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="img/logo-tenerife.png" alt="CD Tenerife Logo" class="logo">
+                <h1>CD Tenerife</h1>
+            </div>
+            <nav class="navbar">
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Inicio</a></li>
+                    <li><a href="historia.html" class="nav-link">Historia</a></li>
+                    <li><a href="jugadores.html" class="nav-link active">Jugadores</a></li>
+                    <li><a href="calendario.html" class="nav-link">Calendario</a></li>
+                    <li><a href="noticias.html" class="nav-link">Noticias</a></li>
+                    <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Jugadores -->
+    <section class="players-hero">
+        <div class="container">
+            <h1>Plantilla CD Tenerife</h1>
+            <p class="lead">Conoce a los jugadores que defienden los colores blanquiazules</p>
+            <p>Temporada 2024-2025 | Primera Federación</p>
+        </div>
+    </section>
+
+    <!-- Formación Táctica -->
+    <section class="presentation">
+        <div class="container">
+            <div class="formation-container">
+                <h2 class="formation-title">Formación Habitual: 4-3-3</h2>
+                <div class="formation-field">
+                    <!-- Delanteros -->
+                    <div class="formation-line">
+                        <div class="formation-player">
+                            <div>ENRIC<br>GALLEGO</div>
+                        </div>
+                        <div class="formation-player">
+                            <div>MO<br>DAUDA</div>
+                        </div>
+                        <div class="formation-player">
+                            <div>LUISMI<br>CRUZ</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Mediocampistas -->
+                    <div class="formation-line">
+                        <div class="formation-player">
+                            <div>SERGIO<br>GONZÁLEZ</div>
+                        </div>
+                        <div class="formation-player">
+                            <div>ETHYAN<br>GONZÁLEZ</div>
+                        </div>
+                        <div class="formation-player">
+                            <div>ÁLEX<br>CORREDERA</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Defensas -->
+                    <div class="formation-line">
+                        <div class="formation-player">
+                            <div>JÉRÉMY<br>MELLOT</div>
+                        </div>
+                        <div class="formation-player">
+                            <div>JOSÉ<br>LEÓN</div>
+                        </div>
+                        <div class="formation-player">
+                            <div>LOÏC<br>WILLIAMS</div>
+                        </div>
+                        <div class="formation-player">
+                            <div>NACHO<br>MARTÍNEZ</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Portero -->
+                    <div class="formation-line">
+                        <div class="formation-player">
+                            <div>JUAN<br>SORIANO</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filtros por Posición -->
+    <section class="position-filter">
+        <div class="container">
+            <h2>Filtrar por Posición</h2>
+            <button class="filter-btn active" data-position="todos">Todos</button>
+            <button class="filter-btn" data-position="porteros">Porteros</button>
+            <button class="filter-btn" data-position="defensas">Defensas</button>
+            <button class="filter-btn" data-position="centrocampistas">Centrocampistas</button>
+            <button class="filter-btn" data-position="delanteros">Delanteros</button>
+        </div>
+    </section>
+
+    <!-- Plantilla Completa -->
+    <section class="latest-news">
+        <div class="container">
+            <h2>Plantilla Completa</h2>
+            <div class="players-grid" id="players-container">
+                
+                <!-- PORTEROS -->
+                <div class="player-card" data-position="porteros">
+                    <div class="player-image">
+                        <div class="player-number">1</div>
+                        🥅
+                    </div>
+                    <div class="player-info">
+                        <h3 class="player-name">Juan Soriano</h3>
+                        <p class="player-position">Portero</p>
+                        <p>Guardameta experimentado con gran presencia bajo los palos. Líder defensivo del equipo con excelente juego aéreo.</p>
+                        <div class="player-stats">
+                            <div class="stat-item">
+                                <span>Edad:</span>
+                                <span>29 años</span>
+                            </div>
+                            <div class="stat-item">
+                                <span>Nacionalidad:</span>
+                                <span>España</span>
+                            </div>
+                            <div class="stat-item">
+                                <span>Altura:</span>
+                                <span>1.90m</span>
+                            </div>
+                            <div class="stat-item">
+                                <span>Partidos:</span>
+                                <span>25</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="player-card" data-position="porteros">
+                    <div class="player-image">
+                        <div class="player-number">13</div>
+                        🥅
+                    </div>
+                    <div class="player-info">
+                        <h3 class="player-name">Tomeu Nadal</h3>
+                        <p class="player-position">Portero</p>
+                        <p>Portero veterano con gran experiencia. Conoce perfectamente el fútbol español y aporta tranquilidad al equipo.</p>
+                        <div class="player-stats">
+                            <div class="stat-item">
+                                <span>Edad:</span>
+                                <span>35 años</span>
+                            </div>
+                            <div class="stat-item">
+                                <span>Nacionalidad:</span>
+                                <span>España</span>
+                            </div>
+                            <div class="stat-item">
+                                <span>Altura:</span>
+                                <span>1.87m</span>
+                            </div>
+                            <div class="stat-item">
+                                <span>Partidos:</span>
+                                <span>8</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DEFENSAS -->
+                <div class="player-card" data-position="defensas">
+                    <div class="player-image">
+                        <div class="player-number">2</div>
+                        🛡️
+                    </div>
+                    <div class="player-info">
+                        <h3 class="player-name">Jérémy Mellot</h3>
+                        <p class="player-position">Lateral Derecho</p>
+                        <p>Lateral francés con gran proyección ofensiva. Aporta velocidad y precisión en el ataque por la banda derecha.</p>
+                        <div class="player-stats">
+                            <div class="stat-item">
+                                <span>Edad:</span>
+                                <span>26 años</span>
+                            </div>
+                            <div class="stat-item">
+                                <span>Nacionalidad:</span>
+                                <span>Francia</span>
+                            </div>
+                            <div class="stat-item">
+                                <span>Altura:</span>
+                                <span>1.78m</span>
+                            </div>
+                            <div class="stat-item">
+                                <span>Goles:</span>
+                                <span>3</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="player-card" data-position="defensas">
+                    <div class="player-image">
+                        <div class="player-number">4</div>
+                        🛡️
+                    </div>
+                    <div class="player-info">
+                        <h3 class="player-name">José León</h3>
+                        <p class="player-position">Defensa Central</p>
+                        <p>Central sólido y experimentado. Pilar fundamental de la defensa con gran liderazgo y juego aéreo.</p>
+                        <div class="player-stats">
+                            <div class="stat-item">
+                                <span>Edad:</span>
+                                <span>31 años</span>
+                            </div>
+                            <div class="stat-item">
+                                <span>Nacionalidad:</span>
+                                <span>España</span>
+                            </div>
+                            <div class="stat-item">
+                                <span>Altura:</span>
+                                <span>1.85m</span>
+                            </div>
+                            <div class="stat-item">
+                                <span>Goles:</span>
+                                <span>2</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="player-card" data-position="defensas">
+                    <div class="player-image">
+                        <div class="player-number">5</div>
+                        🛡️
+                    </div>
+                    <div class="player-info">
+                        <h3 class="player-name">Loïc Williams</h3>
+                        <p class="player-position">Defensa Central</p>
+                        <p>Defensa central francés con gran físico. Combina potencia aérea con buena salida de balón desde atrás.</p>
+                        <div class="player-stats">
+                            <div class="stat-item">
+                                <span>Edad:</span>
+                                <span>28 años</span>
+                            </div>
+                            <div class="stat-item">
+                                <span>Nacionalidad:</span>
+                                <span>Francia</span>
+                            </div>
+                            <div class="stat-item">
+                                <span>Altura:</span>
+                                <span>1.88m</span>
+                            </div>
+                            <div class="stat-item">
+                                <span>Goles:</span>
+                                <span>1</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="player-card" data-position="defensas">
+                    <div class="player-image">
+                        <div class="player-number">3</div>
+                        🛡️
+                    </div>
+                    <div class="player-info">
+                        <h3 class="player-name">Nacho Martínez</h3>
+                        <p class="player-position">Lateral Izquierdo</p>
+                        <p>Lateral izquierdo con gran experiencia en categorías superiores. Aporta equilibrio entre defensa y ataque.</p>
+                        <div class="player-stats">
+                            <div class="stat-item">
+                                <span>Edad:</span>
+                                <span>30 años</span>
+                            </div>
+                            <div class="stat-item">
+                                <span>Nacionalidad:</span>
+                                <span>España</span>
+                            </div>
+                            <div class="stat-item">
+                                <span>Altura:</span>
+                                <span>1.75m</span>
+                            </div>
+                            <div class="stat-item">
+                                <span>Asistencias:</span>
+                                <span>4</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CENTROCAMPISTAS -->
+                <div class="player-card" data-position="centrocampistas">
+                    <div class="player-image">
+                        <div class="player-number">6</div>
+                        ⚽
+                    </div>
+                    <div class="player-info">
+                        <h3 class="player-name">Sergio González</h3>
+                        <p class="player-position">Centrocampista Defensivo</p>
+                        <p>Mediocentro con gran visión de juego. Organizador del equipo con excelente pase largo y recuperación de balones.</p>
+                        <div class="player-stats">
+                            <div class="stat-item">
+                                <span>Edad:</span>
+                                <span>27 años</span>
+                            </div>
+                            <div class="stat-item">
+                                <span>Nacionalidad:</span>
+                                <span>España</span>
+                            </div>
+                            <div class="stat-item">
+                                <span>Altura:</span>
+                                <span>1.80m</span>
+                            </div>
+                            <div class="stat-item">
+                                <span>Asistencias:</span>
+                                <span>6</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="player-card" data-position="centrocampistas">
+                    <div class="player-image">
+                        <div class="player-number">8</div>
+                        ⚽
+                    </div>
+                    <div class="player-info">
+                        <h3 class="player-name">Ethyan González</h3>
+                        <p class="player-position">Centrocampista</p>
+                        <p>Centrocampista dinámico con gran técnica. Combina llegada al área con trabajo defensivo, siendo clave en ambas fases.</p>
+                        <div class="player-stats">
+                            <div class="stat-item">
+                                <span>Edad:</span>
+                                <span>24 años</span>
+                            </div>
+                            <div class="stat-item">
+                                <span>Nacionalidad:</span>
+                                <span>España</span>
+                            </div>
+                            <div class="stat-item">
+                                <span>Altura:</span>
+                                <span>1.77m</span>
+                            </div>
+                            <div class="stat-item">
+                                <span>Goles:</span>
+                                <span>5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="player-card" data-position="centrocampistas">
+                    <div class="player-image">
+                        <div class="player-number">10</div>
+                        ⚽
+                    </div>
+                    <div class="player-info">
+                        <h3 class="player-name">Álex Corredera</h3>
+                        <p class="player-position">Centrocampista Ofensivo</p>
+                        <p>Mediapunta creativo con gran técnica individual. Especialista en asistencias y jugadas de peligro en área rival.</p>
+                        <div class="player-stats">
+                            <div class="stat-item">
+                                <span>Edad:</span>
+                                <span>25 años</span>
+                            </div>
+                            <div class="stat-item">
+                                <span>Nacionalidad:</span>
+                                <span>España</span>
+                            </div>
+                            <div class="stat-item">
+                                <span>Altura:</span>
+                                <span>1.73m</span>
+                            </div>
+                            <div class="stat-item">
+                                <span>Asistencias:</span>
+                                <span>8</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DELANTEROS -->
+                <div class="player-card" data-position="delanteros">
+                    <div class="player-image">
+                        <div class="player-number">9</div>
+                        ⚽
+                    </div>
+                    <div class="player-info">
+                        <h3 class="player-name">Enric Gallego</h3>
+                        <p class="player-position">Delantero Centro</p>
+                        <p>Delantero de referencia con gran experiencia en Primera División. Excelente juego aéreo y capacidad goleadora.</p>
+                        <div class="player-stats">
+                            <div class="stat-item">
+                                <span>Edad:</span>
+                                <span>33 años</span>
+                            </div>
+                            <div class="stat-item">
+                                <span>Nacionalidad:</span>
+                                <span>España</span>
+                            </div>
+                            <div class="stat-item">
+                                <span>Altura:</span>
+                                <span>1.84m</span>
+                            </div>
+                            <div class="stat-item">
+                                <span>Goles:</span>
+                                <span>12</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="player-card" data-position="delanteros">
+                    <div class="player-image">
+                        <div class="player-number">11</div>
+                        ⚽
+                    </div>
+                    <div class="player-info">
+                        <h3 class="player-name">Mo Dauda</h3>
+                        <p class="player-position">Extremo Izquierdo</p>
+                        <p>Extremo ghanés con gran velocidad y desborde. Aporta desequilibrio por la banda izquierda y precisión en el centro.</p>
+                        <div class="player-stats">
+                            <div class="stat-item">
+                                <span>Edad:</span>
+                                <span>23 años</span>
+                            </div>
+                            <div class="stat-item">
+                                <span>Nacionalidad:</span>
+                                <span>Ghana</span>
+                            </div>
+                            <div class="stat-item">
+                                <span>Altura:</span>
+                                <span>1.76m</span>
+                            </div>
+                            <div class="stat-item">
+                                <span>Goles:</span>
+                                <span>7</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="player-card" data-position="delanteros">
+                    <div class="player-image">
+                        <div class="player-number">7</div>
+                        ⚽
+                    </div>
+                    <div class="player-info">
+                        <h3 class="player-name">Luismi Cruz</h3>
+                        <p class="player-position">Extremo Derecho</p>
+                        <p>Extremo canario formado en la cantera del club. Rápido y técnico, especialista en jugadas por la banda derecha.</p>
+                        <div class="player-stats">
+                            <div class="stat-item">
+                                <span>Edad:</span>
+                                <span>22 años</span>
+                            </div>
+                            <div class="stat-item">
+                                <span>Nacionalidad:</span>
+                                <span>España</span>
+                            </div>
+                            <div class="stat-item">
+                                <span>Altura:</span>
+                                <span>1.74m</span>
+                            </div>
+                            <div class="stat-item">
+                                <span>Goles:</span>
+                                <span>4</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Club Deportivo Tenerife</h3>
+                    <p>Estadio Heliodoro Rodríguez López<br>
+                    Avenida San Sebastián, s/n<br>
+                    38006 Santa Cruz de Tenerife</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="historia.html">Historia del Club</a></li>
+                        <li><a href="jugadores.html">Plantilla</a></li>
+                        <li><a href="calendario.html">Calendario</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Síguenos</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link">Facebook</a>
+                        <a href="#" class="social-link">Twitter</a>
+                        <a href="#" class="social-link">Instagram</a>
+                        <a href="#" class="social-link">YouTube</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Club Deportivo Tenerife. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Filtro de jugadores por posición
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const playerCards = document.querySelectorAll('.player-card');
+            
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remover clase active de todos los botones
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    // Agregar clase active al botón clickeado
+                    this.classList.add('active');
+                    
+                    const position = this.getAttribute('data-position');
+                    
+                    playerCards.forEach(card => {
+                        if (position === 'todos' || card.getAttribute('data-position') === position) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
