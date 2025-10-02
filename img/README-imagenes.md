@@ -8,15 +8,6 @@ Para que el sitio web se vea profesional y completo, se necesitan las siguientes
 - `logo-tenerife.png` - Logo oficial del CD Tenerife (formato PNG con fondo transparente)
 - `favicon.ico` - Icono para la pestaña del navegador
 
-### Estadio (carpeta: img/estadio/)
-- `estadio-tenerife.jpg` - Imagen principal del Estadio Heliodoro Rodríguez López
-- `estadio-bg.jpg` - Imagen de fondo para la sección hero
-- `historia-bg.jpg` - Imagen de fondo para la página de historia
-- `plantilla-bg.jpg` - Imagen de fondo para la página de jugadores
-- `calendario-bg.jpg` - Imagen de fondo para la página de calendario
-- `noticias-bg.jpg` - Imagen de fondo para la página de noticias
-- `contacto-bg.jpg` - Imagen de fondo para la página de contacto
-
 ### Jugadores (carpeta: img/jugadores/)
 - Fotos individuales de los jugadores principales (formato JPG)
 - Recomendación: 400x400px mínimo, formato cuadrado preferible
