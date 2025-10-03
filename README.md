@@ -1,68 +1,61 @@
-# Sitio Web CD Tenerife - Primera Federación Española
+# Sito Web CD Tenerife - Primera Federación Española
 
-## Descripción del Proyecto
-Sitio web oficial del Club Deportivo Tenerife, realizado como proyecto académico para la asignatura de español. El sitio está completamente en español y sigue la estructura de los sitios oficiales de los grandes clubes de fútbol.
+## Descrizione del Progetto
+Sito web ufficiale del Club Deportivo Tenerife, realizzato come progetto accademico per la materia di spagnolo. Il sito è interamente in spagnolo e segue la struttura dei siti ufficiali dei grandi club di calcio.
 
-## Objetivo
-Crear un sitio web dedicado al CD Tenerife de la Primera Federación española, cumpliendo con todos los requisitos académicos establecidos.
+## Obiettivo
+Creare un sito web dedicato al CD Tenerife della Primera Federación spagnola, rispettando tutti i requisiti accademici stabiliti.
 
-## Estructura del Sitio
+## Struttura del Sito
 
-### Secciones Obligatorias:
-1. **Página de inicio** - Presentación general del club
-2. **Historia del club** - Breve descripción de la historia del CD Tenerife  
-3. **Jugadores** - Fichas de los jugadores principales con roles y descripciones
-4. **Calendario y resultados** - Tabla con partidos de la temporada
-5. **Noticias** - Artículos sobre eventos y actualizaciones del club
-6. **Contacto** - Formulario de contacto y datos del club
+### Sezioni Obbligatorie:
+1. **Pagina iniziale** - Presentazione generale del club
+2. **Storia del club** - Breve descrizione della storia del CD Tenerife  
+3. **Giocatori** - Schede dei giocatori principali con ruoli e descrizioni
+4. **Calendario e risultati** - Tabella con le partite della stagione
+5. **Notizie** - Articoli su eventi e aggiornamenti del club
+6. **Contatti** - Modulo di contatto e dati del club
 
-## Aspectos Técnicos
-- **Lenguajes:** HTML5, CSS3, JavaScript (opcional)
-- **Idioma:** Español
-- **Design:** Inspirado en sitios oficiales de grandes clubes
-- **Navegación:** Menú claro y funcional
-- **Multimedia:** Logo del club, imágenes de jugadores, estadio
+## Aspetti Tecnici
+- **Linguaggi:** HTML5, CSS3, JavaScript (opzionale)
+- **Lingua:** Spagnolo
+- **Design:** Ispirato ai siti ufficiali dei grandi club
+- **Navigazione:** Menu chiaro e funzionale
+- **Multimedia:** Logo del club, immagini dei giocatori, stadio
 
-## Sobre el CD Tenerife
-El Club Deportivo Tenerife es un club de fútbol español con sede en Santa Cruz de Tenerife, Islas Canarias. Actualmente milita en la Primera Federación, la tercera división del fútbol español.
+## Sul CD Tenerife
+Il Club Deportivo Tenerife è un club di calcio spagnolo con sede a Santa Cruz de Tenerife, Isole Canarie. Attualmente milita nella Primera Federación, la terza divisione del calcio spagnolo.
 
-## Archivos del Proyecto
+## File del Progetto
 ```
 /
-├── index.html              # Página de inicio
-├── historia.html           # Historia del club
-├── jugadores.html          # Plantilla del equipo
-├── calendario.html         # Calendario y resultados
-├── noticias.html          # Noticias del club
-├── contacto.html          # Página de contacto
+├── index.html              # Pagina iniziale
+├── storia.html             # Storia del club
+├── giocatori.html          # Rosa della squadra
+├── calendario.html         # Calendario e risultati
+├── notizie.html            # Notizie del club
+├── contatti.html           # Pagina dei contatti
 ├── css/
-│   └── styles.css         # Estilos principales
+│   └── styles.css          # Stili principali
 ├── js/
-│   └── script.js          # JavaScript (opcional)
+│   └── script.js           # JavaScript (opzionale)
 ├── img/
-│   ├── logo/              # Logo del club
-│   ├── jugadores/         # Fotos de jugadores
-│   └── estadio/           # Imágenes del estadio
-└── README.md              # Este archivo
+│   ├── giocatori/          # Foto dei giocatori
+    ├── notizie/            # Foto delle notizie
+└── README.md               # Questo file
 ```
 
-## Estado del Desarrollo
-✅ **COMPLETADO** - Sitio web totalmente funcional con todas las secciones implementadas
+## Stato dello Sviluppo
+✅ **COMPLETATO** - Sito web completamente funzionale con tutte le sezioni implementate
 
-### Características implementadas:
-- ✅ Página de inicio con presentación del club
-- ✅ Historia completa del CD Tenerife
-- ✅ Plantilla de jugadores con formación táctica
-- ✅ Calendario y resultados detallados
-- ✅ Sección de noticias con artículos
-- ✅ Formulario de contacto funcional
-- ✅ Diseño responsive para móviles
-- ✅ Navegación interactiva
-- ✅ Efectos CSS modernos
-- ✅ JavaScript para funcionalidades dinámicas
-
-### Próximos pasos:
-1. Agregar imágenes reales (ver img/README-imagenes.md)
-2. Optimizar SEO y metadatos
-3. Implementar backend para formularios (opcional)
-4. Añadir más contenido multimedia
+### Caratteristiche implementate:
+- ✅ Pagina iniziale con presentazione del club
+- ✅ Storia completa del CD Tenerife
+- ✅ Rosa dei giocatori con formazione tattica
+- ✅ Calendario e risultati dettagliati
+- ✅ Sezione notizie con articoli
+- ✅ Modulo di contatto funzionante
+- ✅ Design responsive per dispositivi mobili
+- ✅ Navigazione interattiva
+- ✅ Effetti CSS moderni
+- ✅ JavaScript per funzionalità dinamiche

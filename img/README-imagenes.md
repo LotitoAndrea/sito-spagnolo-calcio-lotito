@@ -1,38 +1,38 @@
-# Guía de Imágenes para el Sitio Web CD Tenerife
+# Guida alle Immagini per il Sito Web CD Tenerife
 
-## Imágenes necesarias para completar el proyecto
+## Immagini necessarie per completare il progetto
 
-Para que el sitio web se vea profesional y completo, se necesitan las siguientes imágenes:
+Per rendere il sito web professionale e completo, sono necessarie le seguenti immagini:
 
-### Logo y Branding (carpeta: img/logo/)
-- `logo-tenerife.png` - Logo oficial del CD Tenerife (formato PNG con fondo transparente)
-- `favicon.ico` - Icono para la pestaña del navegador
+### Logo e Branding (cartella: img/logo/)
+- `logo-tenerife.png` - Logo ufficiale del CD Tenerife (formato PNG con sfondo trasparente)
+- `favicon.ico` - Icona per la scheda del browser
 
-### Jugadores (carpeta: img/jugadores/)
-- Fotos individuales de los jugadores principales (formato JPG)
-- Recomendación: 400x400px mínimo, formato cuadrado preferible
+### Giocatori (cartella: img/giocatori/)
+- Foto individuali dei giocatori principali (formato JPG)
+- Raccomandazione: minimo 400x400px, preferibilmente formato quadrato
 
-### Noticias (carpeta: img/)
-- `noticia1.jpg` - Imagen para la primera noticia del home
-- `noticia2.jpg` - Imagen para la segunda noticia del home
-- `noticia3.jpg` - Imagen para la tercera noticia del home
+### Notizie (cartella: img/)
+- `noticia1.jpg` - Immagine per la prima notizia della home
+- `noticia2.jpg` - Immagine per la seconda notizia della home
+- `noticia3.jpg` - Immagine per la terza notizia della home
 
-## Fuentes recomendadas para obtener imágenes:
+## Fonti raccomandate per ottenere immagini:
 
-1. **Sitio web oficial del CD Tenerife** - Para logo oficial y fotos actuales
-2. **Unsplash.com** - Imágenes libres de estadios de fútbol
-3. **Pexels.com** - Fotografías deportivas libres
-4. **Pixabay.com** - Imágenes relacionadas con fútbol
+1. **Sito web ufficiale del CD Tenerife** - Per logo ufficiale e foto aggiornate
+2. **Unsplash.com** - Immagini libere di stadi di calcio
+3. **Pexels.com** - Fotografie sportive gratuite
+4. **Pixabay.com** - Immagini correlate al calcio
 
-## Especificaciones técnicas:
+## Specifiche tecniche:
 
-- **Formato recomendado**: JPG para fotografías, PNG para logos
-- **Resolución mínima**: 1200x800px para imágenes de fondo
-- **Optimización**: Comprimir imágenes para web (máximo 200KB por imagen)
-- **Ratio de aspecto**: 16:9 para imágenes de fondo, 1:1 para fotos de jugadores
+- **Formato raccomandato**: JPG per fotografie, PNG per loghi
+- **Risoluzione minima**: 1200x800px per immagini di sfondo
+- **Ottimizzazione**: Comprimere le immagini per il web (massimo 200KB per immagine)
+- **Rapporto d’aspetto**: 16:9 per immagini di sfondo, 1:1 per foto dei giocatori
 
 ## Nota importante:
 
-Todas las imágenes utilizadas deben cumplir con los derechos de autor. Para uso académico, se pueden utilizar imágenes de uso libre o crear marcadores de posición temporales.
+Tutte le immagini utilizzate devono rispettare i diritti d’autore. Per uso accademico si possono usare immagini libere o creare segnaposto temporanei.
 
-El sitio web está diseñado para funcionar sin imágenes, mostrando iconos de emoji como placeholders hasta que se agreguen las imágenes reales.
+Il sito web è progettato per funzionare anche senza immagini, mostrando icone emoji come placeholders fino all’aggiunta delle immagini reali.
